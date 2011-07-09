@@ -1,0 +1,634 @@
+/* CSS Document */
+@import url("slideshow.css");
+@import url("top5thumbs.css");
+@import url("feed-style.css");
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	outline: 0px;
+	vertical-align:top;
+	background: transparent;
+}
+body, html {
+	background:url(../images/background-ninjas-blue.gif) #005284 repeat top left fixed;
+	font-size: 62.5%;/* Resets 1em to 10px */
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	height:100%
+}
+/* Thumbnail Layout Sprites
+-------------------------------------------- */
+
+.sponsorGamesModule .gameThumbImg {
+	background:none;
+}
+.newGamesModule .gameThumbImg {
+
+}
+.hotGamesModule .gameThumbImg {
+
+}
+.bloonsGamesModule .gameThumbImg {
+
+}
+.actionGamesModule .gameThumbImg {
+
+}
+.puzzleGamesModule .gameThumbImg {
+
+}
+.arcadeGamesModule .gameThumbImg {
+
+}
+.defenseGamesModule .gameThumbImg {
+
+}
+.strategyGamesModule .gameThumbImg {
+
+}
+.multiplayerGamesModule .gameThumbImg {
+
+}
+.iphoneGamesModule .gameThumbImg {
+
+}
+.editorsGamesModule .gameThumbImg {
+
+}
+
+#main {
+
+	background: url(../images/background-scratchy.jpg) bottom center no-repeat;
+		background-color:#030303;
+}
+#inner-wrapper {
+	padding-top:4px;
+	background-color:transparent;
+}
+#mochiLogin {
+	width:300px;
+	height:34px;
+	background-color:#FFF;
+}
+a:active, a:focus, input[type="image"] {
+	outline: 0;
+}
+a:link, a:visited {
+	color:#0075DB;
+	border:0px;
+}
+a:hover {
+	color:#F30;
+}
+a img {
+	border:0px;
+}
+.mh {
+	width:100%;
+	height:24px;
+	margin-bottom:3px;
+	position:relative;
+}
+.title-block {
+	width:80%;
+	background:url(../images/module-header-background.png) left top no-repeat;
+	font-size:1.2em;
+	line-height:23px;
+	padding-left:25px;
+	color:#fff;
+	height:24px;
+}
+.title-right {
+	width:20%;
+	height:24px;
+	position:absolute;
+	top:0px;
+	right:0px;
+	background:url(../images/module-header-background.png) right top no-repeat;
+}
+.module-header {
+	position:relative;
+	background:url(../images/module-header-background.png) left top no-repeat;
+	padding-left:25px;
+	height:24px;
+	color:#fff;
+	margin-bottom:3px;
+	font-size:1.2em;
+	line-height:23px;
+}
+span.heading-bullet {
+	position:absolute;
+	display:block;
+	right:0px;
+	top:0px;
+	height:24px;
+	width:25px;
+}
+#wrapper {
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	width:990px;
+	background-color:#070707;
+	height:100%
+}
+#header {
+	background:url(../images/header-footer.png) no-repeat top center;
+	height:98px;
+}
+div#navigation {
+	background:url(../images/top-menu.bg.png) no-repeat top center;
+	height:30px;
+	width:982px;
+	margin: 0 auto 0 auto;
+	font-size:2.2em;
+	line-height:30px;
+}
+div#navigation ul {
+	margin-left:12px;
+	width:980px;
+
+	border-left: 1px solid #85B6E7;
+}
+div#navigation ul li  {
+	height:30px;
+	float:left;
+}
+div#navigation ul li a  {
+	display: block;
+	height:30px;
+	padding: 0 11px 0 10px;
+	color:#FFF;
+	border-right: 1px solid #85B6E7;
+	text-decoration:none;
+	background:url(../images/top-menu.bg.png) no-repeat top center;
+}
+div#navigation ul li a:hover, div#navigation ul li.active a {
+	background:url(../images/top-menu.bg.png) no-repeat bottom center;
+}
+ul#menu-footer {
+	position:absolute;
+	width:400px;
+	top:40px;
+	left:20px;
+}
+#menu-footer li a {
+	font-size:1.5em;
+	float:left;
+	color:#777;
+	padding: 0 5px 0 5px;
+	border-right: 1px solid #444;
+	text-decoration:none;
+}
+#menu-footer li a:hover {
+	color:#FFF;
+}
+#menu-footer li.last-item a {
+	border:none;
+}
+ul#social-footer {
+	position:absolute;
+	width:400px;
+	top:33px;
+	right:20px;
+}
+#social-footer li a {
+	background:url(../images/social-connect.png) no-repeat 2px 0px;
+	height:32px;
+	font-size:1.5em;
+	float:right;
+	color:#777;
+	padding: 0 5px 0 37px;
+	text-decoration:none;
+	line-height:28px
+}
+#social-footer li.fb a {
+	background:url(../images/social-connect.png) no-repeat 2px -64px;
+}
+#social-footer li a:hover {
+	background:url(../images/social-connect.png) no-repeat 2px -32px;
+	color:#FFF;
+}
+#social-footer li.fb a:hover {
+	background:url(../images/social-connect.png) no-repeat 2px -96px;
+}
+#footer {
+	position:relative;
+	background:url(../images/header-footer.png) no-repeat bottom center;
+	height:95px;
+	clear:both;
+}
+#feature-games {
+	width:240px;
+	float:left;
+	height:211px;
+	background:url(../images/feature-game-background.png) no-repeat 2px bottom;
+}
+#feature-games:hover {
+	height:211px;
+	background:url(../images/feature-game-background.png) no-repeat -246px bottom;
+}
+#new-games {
+	width:246px;
+	float:right;
+}
+.left-module, .center-module, .right-module {
+	position:relative;
+	margin:0px;
+	padding:0px;
+	padding:4px;
+	overflow:hidden;
+
+	margin-bottom:4px;
+	font-size:1.9em;
+
+		background-color:#FFF;
+}
+.ad-loader-light {
+		background:url(../images/ajax-loader-white.gif) no-repeat center center;
+}
+.ad-loader-dark {
+		background:url(../images/ajax-loader-dark.gif) no-repeat center center;
+}
+
+.rounded {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.center-align {
+	text-align:center;
+}
+.clear {
+	clear:both;
+}
+.all-games-column {
+	float:left;
+	width:164px;
+	margin-right:8px;
+	margin-left:4px;
+	color:#666;
+	padding:10px;
+	padding-top:0px;
+}
+.all-games-column li {
+	margin-left:3px;
+}
+.all-games-column h3 {
+	color:#999;
+	margin-top:10px;
+}
+.large-dark-module a, .large-dark-moduls a:visited {
+	color:#777;
+	text-decoration:none;
+}
+.large-dark-module a:hover {
+	color:#fff;
+}
+.large-dark-module {
+	position:relative;
+	font-size:1.8em;
+	margin: 0 4px 0 4px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	overflow:auto;
+	background-color:transparent;
+	background:url(../images/transparency-repeat2.png) repeat;
+	border: 1px solid #333;
+	border-radius: 5px;
+}
+#left-wrap-SEO {
+	float:left;
+	width:670px;
+	margin-left:4px;
+}
+#right-column {
+	float:right;
+	width:308px;
+	margin-right:4px;
+}
+#center-column {
+	float:right;
+	width:498px;
+}
+#left-column {
+	width:168px;
+	float:left;
+}
+#large-column-640 {
+	width:670px;
+}
+.ninja-logo {
+	position:absolute;
+	top:20px;
+	left:9px;
+	text-decoration:none;
+}
+h1.plug {
+	position:absolute;
+	top:70px;
+	left:9px;
+	width:240px;
+	text-align:center;
+	font-weight:normal;
+	font-size:2em;
+	text-decoration:none;
+}
+.logoHover a {
+	color:#ccc;
+	text-decoration:none;
+}
+.logoHover a:hover {
+	color:#fff;
+}
+#thumbholder {
+	position:absolute;
+	top:178px;
+	left:426px;
+	height:209px;
+	width:242px;
+	padding:0;
+	margin:0;
+}
+ul {
+	list-style-type:none;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+#top-banner {
+	position:absolute;
+	right:6px;
+	top:4px;
+	width:728px;
+	height:90px;
+}
+.alignCenter a {
+	text-decoration:none;
+}
+div.dark-module-scratch {
+	background-color:transparent;
+	border: 1px solid #555;
+	background:url(../images/trans-dark-tile.png) repeat-x;
+	text-decoration:none;
+	overflow:visible;
+}
+div.dark-module-honeycomb {
+	background-color:transparent;
+	border: 1px solid #555;
+	background:url(../images/transparency-repeat-grad.png) top center repeat;
+}
+.dark-module-no-back {
+	background:url(../images/transparency-repeat.png) top center repeat;
+	background-color:transparent;
+	border: 1px solid #555;
+}
+div.dark-module {
+	background-color:transparent;
+	border: 1px solid #555;
+	background:url(../images/transparency-repeat.png) repeat;
+}
+div.dark-module2 {
+	background:url(../images/honey.png)top left no-repeat;
+	background-position: -7px 0px;
+	background-color:#fff;
+}
+div.dark-module3 {
+	background-position: -7px 0px;
+	background-color:#fff;
+}
+div.dark-module4 {
+	background:url(../images/background-scratchy-white.jpg) left -50px no-repeat;
+	background-color:#fff;
+}
+.game-description {
+	padding:0px 20px 10px 20px;
+}
+.dailyPlayWrap {
+	display:block;
+	position:relative;
+	margin-top:15px;
+	background:url(../images/feature-game-background.png) top left no-repeat;
+	width:238px;
+	height:196px;
+	border:none;
+}
+.dailyPlayWrap:hover {
+	text-decoration:inherit;
+	background:url(../images/feature-game-background.png) top right no-repeat;
+}
+.dailyPlayWrap img {
+	margin:3px 7px 5px 3px
+}
+.pre-play-lg-thumb {
+	float:left;
+	width:270px;
+	margin-top:2px;
+}
+.pre-play-game-title {
+	float:right;
+	width:194px;
+	color:#f4f4f4;
+	font-size:2.2em;
+	margin: 30px 19px 0 0;
+	text-align:center;
+	text-decoration:none;
+}
+div.dark-module2 .pre-play-game-title, div.dark-module3 .pre-play-game-title, div.dark-module4 .pre-play-game-title {
+	color:#111;
+}
+div.dark-module-honeycomb .game-description, div.dark-module-no-back .game-description, div.dark-module-scratch .game-description {
+	color:#ccc;
+}
+.pre-play-game-button {
+	text-decoration:inherit;
+	text-decoration:none;
+}
+span.pre-play-game-button {
+	float:right;
+	width:188px;
+	height:60px;
+	margin: 10px 19px 0 0;
+	background:url(../images/play-button.png) bottom center no-repeat;
+	text-align:center;
+	line-height:57px;
+	color:#FFF;
+	font-size:2.7em;
+	text-decoration:none;
+}
+a .pre-play-game-button {
+	text-decoration:none;
+}
+.dark-module-scratch a {
+	text-decoration:none;
+}
+a span.pre-play-game-button {
+	text-decoration:inherit;
+}
+a span.pre-play-game-button:hover {
+	background-position:top center;
+}
+.game-wrapper {
+	text-align:center;
+	padding:10px 0 10px 0;
+}
+#ratin-wrapper {
+	margin-bottom:5px;
+	padding:10px;
+	background-color:#FFF;
+	text-align:left;
+}
+.ad-play-page-under-game-left {
+	float:left;
+	width:325px;
+	text-align:center;
+}
+.ad-play-page-under-game-right {
+	float:right;
+	width:325px;
+	text-align:center;
+}
+.ad-large-game {
+	float:right;
+	width:168px;
+	height:608px;
+	display:inline;
+}
+#large-game-wrapper {
+	margin: 0px 4px 4px 4px;
+	padding:0;
+}
+.large-game {
+	float:left;
+	width:800px;
+	padding:4px;
+}
+ul.flags {
+	margin:0px 5px 5px 0px;
+}
+ul.flags li a {
+	float:left;
+	margin:0px 7px 0 0;
+	padding:0px;
+	height:20px;
+	line-height:20px;
+}
+ul.flags li a span {
+	display:inline-block;
+	background: url(../sprites/SpriteSheetFlags.png) 0px center no-repeat;
+	padding: 0px;
+	height:100%;
+	width:16px;
+	margin:0px 5px 0px 5px;
+}
+span.F1 {
+}
+ul.flags li a span.F2 {
+	background-position:  -16px;
+}
+ul.flags li a span.F3 {
+	background-position:  -32px;
+}
+ul.flags li a span.F4 {
+	background-position:  -48px;
+}
+ul.flags li a span.F5 {
+	background-position:  -64px;
+}
+ul.flags li a span.F6 {
+	background-position:  -80px;
+}
+ul.flags li a span.F7 {
+	background-position:  -96px;
+}
+ul.flags li a span.F8 {
+	background-position:  -112px;
+}
+ul.flags li a span.F9 {
+	background-position:  -128px;
+}
+ul.flags li a span.F10 {
+	background-position:  -144px;
+}
+ul.flags li a span.F11 {
+	background-position:  -160px;
+}
+ul.flags li a span.F12 {
+	background-position:  -176px;
+}
+ul.flags li a span.F13 {
+	background-position:  -192px;
+}
+ul.flags li a span.F14 {
+	background-position:  -208px;
+}
+.margin-top-4 {
+	margin-top:4px
+}
+.padding-10 {
+	padding:5px;
+}
+#crap-ads-loader {
+	position:absolute;
+	left:-9999px;
+	visibility:hidden;
+}
+/* Thumbnails Misc Styles and defaults 
+-------------------------------------------- */
+
+.gameModuleBox {
+	padding: 0;
+	margin: 0;
+}
+/* Applies background images to all li's with a 
+ * parent class gameModuleBox
+-------------------------------------------- */
+.gameModuleBox li {
+	list-style: none;
+	float: left;
+	position: relative;
+	margin: 0 0px 0 2px;
+	background: url(../images/smallThumbBackground.png) 0px 0px scroll no-repeat;
+}
+.gameModuleBox li:hover {
+	background: url(../images/smallThumbBackground.png) -120px 0px scroll no-repeat;
+}
+/* Set to block and applied to the A tag for useablity
+ * makes the whole thumb clickable and works in ie6
+ * Note: even though ie6 is still clickable
+ * with this span overlay cursor returns
+ * to default, force pointer for ie6.
+-------------------------------------------- */
+.gameThumbWrapper {
+	width: 120px;
+	height: 100px;
+	display: block;
+	background-position: 3px 3px;
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+/* Basically a mask for the thumbnail
+ * with the .gameThumbWrapper taking up full width
+ * and height the image appears to repeat.
+-------------------------------------------- */
+.gameThumbImg {
+	height: 74px;
+	width: 110px;
+	display: block;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+}
+
+
+/* Positions thumbnail name
+ * and controls the font styling
+-------------------------------------------- */
+.gameTitle {
+	position: absolute;
+	bottom: 2px;
+	width: 100%;
+	text-align: center;
+}
