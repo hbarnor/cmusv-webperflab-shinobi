@@ -1,0 +1,1 @@
+document.write('<scr'+'ipt type="text/javascript" src="js/ib_adnxs_316.js"></scr'+'ipt>');
