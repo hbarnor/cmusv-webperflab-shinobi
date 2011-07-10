@@ -1,1 +1,0 @@
-document.write('<!-- BEGIN STANDARD TAG - 728 x 90 - ninjakiwi.com: Run-of-site - DO NOT MODIFY -->\r\n<IFRAME FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH=728 HEIGHT=90 SRC="http://ad.xtendmedia.com/st?ad_type=iframe&ad_size=728x90&section=367566"><\/IFRAME>\r\n<!-- END TAG -->\r\n');
