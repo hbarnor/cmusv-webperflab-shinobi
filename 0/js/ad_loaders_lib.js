@@ -33,408 +33,531 @@ function getTrigger(id, isDynamic) {
 	  }	  		
 }
 
-// -----------------------------------------------------------------------------
-// Globals
-// Major version of Flash required
-var TF_requiredMajorVersion = 5;
-// Minor version of Flash required
-var TF_requiredMinorVersion = 0;
-// Revision of Flash required
-var TF_requiredRevision = 0;
-// -----------------------------------------------------------------------------
 
-var TFclick = "TFclick" + tf_id;
-//Copyright 2006 Adobe Systems, Inc. All rights reserved.
-var isIE = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
-var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
-var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
+var expo9_pageId;
+var expo9_adNum;
 
-function TF_ControlVersion()
-{
-	var version;
-	var axo;
-	var e;
-
-	// NOTE : new ActiveXObject(strFoo) throws an exception if strFoo isn't in the registry
-
-	try {
-		// version will be set for 7.X or greater players
-		axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");
-		version = axo.GetVariable("$version");
-	} catch (e) {
-	}
-
-	if (!version)
-	{
-		try {
-			// version will be set for 6.X players only
-			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");
-
-			// installed player is some revision of 6.0
-			// GetVariable("$version") crashes for versions 6.0.22 through 6.0.29,
-			// so we have to be careful.
-
-			// default to the first public version
-			version = "WIN 6,0,21,0";
-
-			// throws if AllowScripAccess does not exist (introduced in 6.0r47)
-			axo.AllowScriptAccess = "always";
-
-			// safe to call for 6.0r47 or greater
-			version = axo.GetVariable("$version");
-
-		} catch (e) {
-		}
-	}
-
-	if (!version)
-	{
-		try {
-			// version will be set for 4.X or 5.X player
-			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
-			version = axo.GetVariable("$version");
-		} catch (e) {
-		}
-	}
-
-	if (!version)
-	{
-		try {
-			// version will be set for 3.X player
-			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
-			version = "WIN 3,0,18,0";
-		} catch (e) {
-		}
-	}
-
-	if (!version)
-	{
-		try {
-			// version will be set for 2.X player
-			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
-			version = "WIN 2,0,0,11";
-		} catch (e) {
-			version = -1;
-		}
-	}
-
-	return version;
+try {
+  if (window.top.expo9_pageId == undefined) {
+     expo9_pageId = window.top.expo9_pageId = (new Date()).getTime() % 20000001 + parseInt(Math.random() * 10000);
+     expo9_adNum = window.top.expo9_adNum  = 0;
+  } else {
+     expo9_pageId = window.top.expo9_pageId;
+  }
+} catch (e) {
+   expo9_pageId = (new Date()).getTime() % 20000001 + parseInt(Math.random() * 10000);
+   expo9_adNum = 0;
 }
 
-// JavaScript helper required to detect Flash Player PlugIn version information
-function TF_GetSwfVer() {
-	// NS/Opera version >= 3 check for Flash plugin in plugin array
-	var flashVer = -1;
+var e9;
+var e9TKey;
+expo9_ad = function() {
 
-	if (navigator.plugins != null && navigator.plugins.length > 0) {
-		if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]) {
-			var swVer2 = navigator.plugins["Shockwave Flash 2.0"] ? " 2.0" : "";
-			var flashDescription = navigator.plugins["Shockwave Flash" + swVer2].description;
-			var descArray = flashDescription.split(" ");
-			var tempArrayMajor = descArray[2].split(".");
-			var versionMajor = tempArrayMajor[0];
-			var versionMinor = tempArrayMajor[1];
-			var versionRevision = descArray[3];
-			if (versionRevision == "") {
-				versionRevision = descArray[4];
-			}
-			if (versionRevision[0] == "d") {
-				versionRevision = versionRevision.substring(1);
-			} else if (versionRevision[0] == "r") {
-				versionRevision = versionRevision.substring(1);
-				if (versionRevision.indexOf("d") > 0) {
-					versionRevision = versionRevision.substring(0, versionRevision.indexOf("d"));
-				}
-			}
-			var flashVer = versionMajor + "." + versionMinor + "." + versionRevision;
-		}
-	}
-	// MSN/WebTV 2.6 supports Flash 4
-	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.6") != -1) flashVer = 4;
-	// WebTV 2.5 supports Flash 3
-	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.5") != -1) flashVer = 3;
-	// older WebTV supports Flash 2
-	else if (navigator.userAgent.toLowerCase().indexOf("webtv") != -1) flashVer = 2;
-	else if (isIE && isWin && !isOpera) {
-		flashVer = TF_ControlVersion();
-	}
-	return flashVer;
+var version = "1.20";
+var displayAdVersion = "0.3";
+
+function expo9_getAdNum() {
+  try {
+    if (window.top.expo9_adNum == undefined) {
+       expo9_adNum++;
+    }
+    else {
+       expo9_adNum = ++window.top.expo9_adNum;
+    }
+  } catch (e) {
+    expo9_adNum++;
+  }
+ return expo9_adNum;
 }
 
-// When called with reqMajorVer, reqMinorVer, reqRevision returns true if that version or greater is available
-function TF_DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
-{
-	versionStr = TF_GetSwfVer();
-	if (versionStr == -1) {
-		return false;
-	} else if (versionStr != 0) {
-		if (isIE && isWin && !isOpera) {
-			// Given "WIN 2,0,0,11"
-			tempArray = versionStr.split(" ");
-			// ["WIN", "2,0,0,11"]
-			tempString = tempArray[1];
-			// "2,0,0,11"
-			versionArray = tempString.split(",");
-			// ['2', '0', '0', '11']
-		} else {
-			versionArray = versionStr.split(".");
-		}
-		var versionMajor = versionArray[0];
-		var versionMinor = versionArray[1];
-		var versionRevision = versionArray[2];
 
-		// is the major.revision >= requested major.revision AND the minor version >= requested minor
-		if (versionMajor > parseFloat(reqMajorVer)) {
-			return true;
-		} else if (versionMajor == parseFloat(reqMajorVer)) {
-			if (versionMinor > parseFloat(reqMinorVer))
-				return true;
-			else if (versionMinor == parseFloat(reqMinorVer)) {
-				if (versionRevision >= parseFloat(reqRevision))
-					return true;
-			}
-		}
-		return false;
-	}
+function expo9_ad() {
+  var t = this;
+  t.host = "www.webperflab.com/shinobi/clean_0/js";
+  t.busterframe = "";
+  t.busterDomain = "";
+  t.site = "ninjakiwi";
+  t.adSpace = "ros";
+  t.tagKey = "1060018791";
+  t.tKey = e9TKey;
+  t.pageId = expo9_pageId;
+  t.center = 1;
+  t.flashVer = 0;
+  t.tagHash = makeTagHash();
+  t.displayAdURL = "http://" + t.host+"/displayAd.js?dver=" + displayAdVersion + "&th=" + t.tagHash;
 }
 
-function TF_AC_AddExtension(src, ext)
-{
-	if (src.indexOf('?') != -1)
-		return src.replace(/\?/, ext + '?');
-	else
-		return src + ext;
+expo9_ad.prototype.showAd = function () {
+  var t = this;
+  t.url = "";
+  t.params = "";
+  t.uparams = undefined;
+  t.adNum = expo9_getAdNum();
+
+  setTagType(t);
+  t.flashVer = detectFlash();
+
+  t.p('site',t.site);
+  t.p('adSpace',t.adSpace);
+  t.p('tagKey',t.tagKey);
+  t.p('th',t.tagHash);
+  t.p('tKey',t.tKey);
+  t.p('size',t.getSizeMask());
+  t.p('flashVer',t.flashVer);
+  t.p('ver',version);
+  t.p('center',t.center);
+  t.cp('pop',t.pop);
+  t.cp('noAd',t.noAd);
+  t.cp('ct',t.contentType);
+  t.cp('at',t.adtype);
+  t.cp('pf',t.pf);
+
+  copyFixedBehaviors(t);
+  setPubParams(t);
+  setCustomPubParams(t);
+  setURLs(t);
+
+  var rnd = (new Date()).getTime() % 20000001 + parseInt(Math.random() * 10000);
+
+  if (t.tagType != "buster")
+   {
+     t.p('p',t.pageId);
+     t.p('a',t.adNum);
+   }
+
+  t.url = "http://"+t.host+"/" + t.cmd + t.uparams + t.params + "&rnd=" + rnd;
+
+  drawTags(t);
+
+  if (t.debug == 1)
+     inspect(t);
+ 
+  document.writeln(t.tagSrc);
 }
 
-function TF_AC_Generateobj(objAttrs, params, embedAttrs)
-{
-	var str = '';
-	if (isIE && isWin && !isOpera)
-	{
-		str += '<object ';
-		for (var i in objAttrs)
-		{
-			str += i + '="' + objAttrs[i] + '" ';
-		}
-		str += '>';
-		for (var i in params)
-		{
-			str += '<param name="' + i + '" value="' + params[i] + '" /> ';
-		}
-		str += '</object>';
-	}
-	else
-	{
-		str += '<embed ';
-		for (var i in embedAttrs)
-		{
-			str += i + '="' + embedAttrs[i] + '" ';
-		}
-		str += '> </embed>';
-	}
+expo9_ad.prototype.showPopOnlyAd = function () {
+  var t = this;
+  t.url = "";
+  t.params = "";
+  t.uparams = "";
+  t.adNum = expo9_getAdNum();
 
-	document.write(str);
+  t.tagType='iframe';
+  t.cmd='f.ad';
+  t.flashVer = detectFlash();
+
+  t.p('site',t.site);
+  t.p('adSpace',t.adSpace);
+  t.p('tagKey',t.tagKey);
+  t.p('th',t.tagHash);
+  t.p('tKey',t.tKey);
+  t.p('size','1x1');
+  t.p('p',t.pageId);
+  t.p('a',t.adNum);
+  t.p('flashVer',t.flashVer);
+  t.p('center',t.center);
+  t.cp('pop','only');
+  t.cp('noAd',1);
+  t.cp('ct',t.contentType);
+  t.cp('at',t.adtype);
+  t.cp('pf',t.pf);
+
+  copyFixedBehaviors(t);
+  setPubParams(t);
+  setCustomPubParams(t);
+  setURLs(t);
+
+  var rnd = (new Date()).getTime() % 20000001 + parseInt(Math.random() * 10000);
+
+  t.url = "http://"+t.host+"/" + t.cmd + t.uparams + t.params + "&rnd=" + rnd;
+
+  document.cookie='tf0=y0; path=/;';
+  if (document.cookie.indexOf('f0=y0') >= 0 && document.cookie.indexOf('f1=y1') < 0) {
+         drawPopOnlyTags(t);
+         if (t.debug == 1)
+            inspect(t);
+         document.writeln(t.tagSrc);
+  }			 
+ 
 }
 
-function TF_AC_FL_RunContent() {
-	var ret =
-			TF_AC_GetArgs
-					(arguments, ".swf", "movie", "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-							, "application/x-shockwave-flash"
-							);
-	TF_AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+function includeJScript(f) {
+  document.writeln('<scr' + 'ipt type="text/javascript" src="' + f + '"><\/sc' + 'ript>');
 }
 
-function TF_AC_SW_RunContent() {
-	var ret =
-			TF_AC_GetArgs
-					(arguments, ".dcr", "src", "clsid:166B1BCA-3F9C-11CF-8075-444553540000"
-							, null
-							);
-	TF_AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+function drawTags(t) {
+  if (t.tagType == "iframe") {
+     t.tagSrc = '<iframe src="' + t.url + '" marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no allowTransparency=true width='
+          + t.fw + ' height=' + t.fh + ' ><\/iframe>';
+  } else if (t.tagType == "jscript") {
+     t.tagSrc = '<scr' + 'ipt type="text/javascript" SRC="' + t.url + '"><\/sc' + 'ript>';
+     if (t.center == 1)
+        t.tagSrc = '<center>'+t.tagSrc+'</center>';
+  } else if (t.tagType == "img") {
+     var hrefURL = "http://"+t.host+"/i.click" + t.uparams + t.params;
+     t.tagSrc =  '<a href="' + hrefURL + '"><img width='  
+          + t.fw + ' height=' + t.fh + ' src="' + t.url + '" alt="Click Here" border=0></img></a>';
+  } else if (t.tagType == "buster") {
+     t.tagSrc = '<iframe src="' + t.busterframe + '#' + t.uparams + t.params + '" marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 ' +
+		 'scrolling=no allowTransparency=true width=' + t.fw + ' height=' + t.fh + '"></iframe>';
+  }
+
 }
 
-function TF_AC_GetArgs(args, ext, srcParamName, classid, mimeType) {
-	var ret = new Object();
-	ret.embedAttrs = new Object();
-	ret.params = new Object();
-	ret.objAttrs = new Object();
-	for (var i = 0; i < args.length; i = i + 2) {
-		var currArg = args[i].toLowerCase();
-
-		switch (currArg) {
-			case "classid":
-				break;
-			case "pluginspage":
-				ret.embedAttrs[args[i]] = args[i + 1];
-				break;
-			case "src":
-			case "movie":
-				args[i + 1] = TF_AC_AddExtension(args[i + 1], ext);
-				ret.embedAttrs["src"] = args[i + 1];
-				ret.params[srcParamName] = args[i + 1];
-				break;
-			case "onafterupdate":
-			case "onbeforeupdate":
-			case "onblur":
-			case "oncellchange":
-			case "onclick":
-			case "ondblclick":
-			case "ondrag":
-			case "ondragend":
-			case "ondragenter":
-			case "ondragleave":
-			case "ondragover":
-			case "ondrop":
-			case "onfinish":
-			case "onfocus":
-			case "onhelp":
-			case "onmousedown":
-			case "onmouseup":
-			case "onmouseover":
-			case "onmousemove":
-			case "onmouseout":
-			case "onkeypress":
-			case "onkeydown":
-			case "onkeyup":
-			case "onload":
-			case "onlosecapture":
-			case "onpropertychange":
-			case "onreadystatechange":
-			case "onrowsdelete":
-			case "onrowenter":
-			case "onrowexit":
-			case "onrowsinserted":
-			case "onstart":
-			case "onscroll":
-			case "onbeforeeditfocus":
-			case "onactivate":
-			case "onbeforedeactivate":
-			case "ondeactivate":
-			case "type":
-			case "codebase":
-			case "id":
-				ret.objAttrs[args[i]] = args[i + 1];
-				break;
-			case "width":
-			case "height":
-			case "align":
-			case "vspace":
-			case "hspace":
-			case "class":
-			case "title":
-			case "accesskey":
-			case "name":
-			case "tabindex":
-				ret.embedAttrs[args[i]] = ret.objAttrs[args[i]] = args[i + 1];
-				break;
-			default:
-				ret.embedAttrs[args[i]] = ret.params[args[i]] = args[i + 1];
-		}
-	}
-	ret.objAttrs["classid"] = classid;
-	if (mimeType) ret.embedAttrs["type"] = mimeType;
-	return ret;
+function drawPopOnlyTags(t) {
+     var tfdate = new Date();
+     t.tagSrc = '<iframe src="' + t.url + 
+		     '" frameborder=0 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no allowTransparency=true width=1'
+          + ' height=1><\/iframe>';
+     tfdate.setTime(tfdate.getTime()+3600000);
+     document.cookie='tf1=y1; path=/; expires='+ tfdate.toGMTString();
 }
 
-function TF_GetFlashVars(extraVars) {
-	var flashVars = "";
-	flashVars = "clickTag=" + escape(tf_clickTag);
-	flashVars += "&clickTAG=" + escape(tf_clickTag);
-	flashVars += "&clicktag=" + escape(tf_clickTag);
-
-	var i = 1;
-	while(eval("typeof(tf_clickTag" + i + ")") != "undefined") {
-		flashVars += "&clickTag" + i + "=" + escape(eval("tf_clickTag" + i));
-		i++;
-	}
-	flashVars += "&tf_flash=" + TF_AC_AddExtension(tf_adBanner, ".swf");
-	flashVars += "&tf_button=" + tf_button;
-	flashVars += "&tf_state=" + tf_state;
-	flashVars += "&tf_city=" + tf_city;
-	flashVars += "&tf_zipcode=" + tf_zipcode;
-	flashVars += "&tf_gender=" + tf_gender;
-	flashVars += "&tf_location=" + tf_location;
-	flashVars += "&tf_id=" + tf_id;
-
-	if(typeof(extraVars) == "object") {
-		for(i in extraVars) {
-			flashVars += "&" + i + "=" + extraVars[i];
-		}
-	} else if(typeof(extraVars) == "string") {
-		flashVars += "&" + extraVars;
-	}
-	return flashVars;
+function inspect (t) {
+  for (var k in t) {
+   if (typeof t[k] != 'function') {
+      if (k == 'tagSrc') {
+         document.writeln("<form><textarea wrap=on readonly name=start rows=13 cols=40>");
+         document.writeln(t.tagSrc);
+         document.writeln("</textarea></form>");
+      } else {
+        pr(t,k);
+      }
+    }
+  }
 }
 
-var tf_adBanner = tf_flashfile;
-
-if(typeof(tf_use_flash_wrapper) == "undefined") {
-	tf_use_flash_wrapper = false;
+function pr(t,name) {
+  document.writeln("this." + name + "=" + t[name] + "<br>");
 }
 
-if(tf_use_flash_wrapper) {
-	tf_flashfile = tf_loaderFlash;
-}
+function setURLs(t) {
+  var frameLevel =
+      (window.top.location == document.location)
+       ? 0 
+       : ((window.parent == window.top) 
+          ? 1 
+          : 2);
 
-if(typeof(tf_allowScriptAccess) == "undefined") {
-	tf_allowScriptAccess = "sameDomain";
-}
+ if ( t.busted == 1)
+  {
+     var fragmentIndex = document.URL.indexOf('#');
+     if (fragmentIndex != -1) {
+       t.cmd = "j.ad"; 
+       t.uparams = document.URL.substring(fragmentIndex+1);
+      }
+     try {
+       if (t.busterDomain != "")
+          document.domain = t.busterDomain;
+     } catch(e) {
+     }
+  }
 
-if(typeof(tf_salign) == "undefined") {
-	tf_salign = "lt";
-}
-
-if(typeof(tf_bgcolor) == "undefined") {
-	tf_bgcolor = "#ffffff";
-}
-
-if(typeof(tf_wmode) == "undefined") {
-	tf_wmode = "opaque";
-}
-
-var hasRightVersion = TF_DetectFlashVer(TF_requiredMajorVersion, TF_requiredMinorVersion, TF_requiredRevision);
-if (hasRightVersion) {  // if we've detected an acceptable version
-	var tf_flashVars = "";
-	if(typeof(tf_extraFlashVars) != "undefined") {
-		tf_flashVars = TF_GetFlashVars(tf_extraFlashVars);
+  try {
+    t.pageURL = window.top.location.href;
+    if ( t.pageURL == undefined) {
+	if (t.busterframe.indexOf("http") == 0 && t.busted != 1) {
+      	   t.tagType = "buster";
 	} else {
-		tf_flashVars = TF_GetFlashVars();
-	}
-	// embed the flash movie
-	TF_AC_FL_RunContent(
-			'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
-			'width', tf_width,
-			'height', tf_height,
-			'src', 'banner',
-			'quality', 'high',
-			'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
-			'align', 'middle',
-			'play', 'true',
-			'loop', 'true',
-			'scale', 'showall',
-			'wmode', tf_wmode,
-			'devicefont', 'false',
-			'id', TFclick,
-			'bgcolor', tf_bgcolor,
-			'name', TFclick,
-			'menu', 'false',
-			'allowFullScreen', 'false',
-			'allowScriptAccess', tf_allowScriptAccess,
-			'movie', tf_flashfile,
-			'salign', tf_salign,
-			'flashVars', tf_flashVars
-			);
-	//end AC code
-} else {  // flash is too old or we can't detect the plugin
-	document.write('<a href="' + tf_clickTag + '" target="_blank">');
-	document.write('<img src="' + tf_imagefile + '" style="width:' + tf_width + 'px;height:' + tf_height + 'px;" border="0px"></a>');
+	   throw("Error");
+        }
+    } 
+    if (frameLevel == 2) {
+       frameLevel = 1;
+    }
+
+    /*
+    if (t.busted == 1) {
+       t.p("busted",1);
+    }
+    */
+  } catch (exception) {
+    if (t.busterframe.indexOf("http") == 0 && t.busted != 1)
+      t.tagType = "buster";
+    else
+     t.pageURL = document.referrer;
+  }
+
+  if (t.tagType != "buster")
+     t.refURL = (t.pageURL != document.referrer) ? document.referrer : undefined;
+
+  if (t.pageURL) {
+    t.pageURL = E(t.pageURL);
+    t.p("url",t.pageURL.substring(0,512));
+  }
+
+  if (t.refURL) {
+    t.refURL = E(t.refURL);
+    t.p("rurl",t.refURL.substring(0,512));
+  }
+
+  if (t.clickTrackURL) {
+    t.p("clickTrackURL",E(t.clickTrackURL));
+  }
+
+  if (t.tagType != "buster")
+     t.p("f",frameLevel);
+
+
 }
 
-//Clean up
-var tf_use_flash_wrapper = false;
-var tf_allowScriptAccess = "sameDomain";
-var tf_salign = "lt";
-var tf_extraFlashVars = new Object();
-var tf_bgcolor = "#ffffff";
-var tf_wmode = "opaque";
+function copyFixedBehaviors(t) {
+  t.cpa('blockingCategories', t.blockingCategories);
+  t.cpa('addBlockingCategories', t.addBlockingCategories);
+  t.cpa('blockingDomains', t.blockingDomains);
+  t.cpa('addBlockingDomains', t.addBlockingDomains);
+  t.cp('z', t.z);
+  t.cp('y', t.y);
+  t.cp('g', t.g);
+  t.cp('c', t.c);
+}
+
+function m(a,b,c) {
+  if (a == undefined || a == "")
+       return b;
+ 
+    a += c + b;
+    return a;
+}
+
+function trim(s) { 
+   if(s != null) 
+     return s.replace(/^\s+/,'').replace(/\s+$/,'') ; 
+   return null;
+} 
+
+function E(s){
+   if(typeof encodeURIComponent=="function"){
+       return encodeURIComponent(s)
+   }else{
+       return escape(s)
+   }
+}
+
+function detectFlash() {
+  var flashinstalled = 0;
+  var flashversion = 0;
+  if (navigator.plugins && navigator.plugins.length) {
+     x = navigator.plugins["Shockwave Flash"];
+     if (x) {
+        flashinstalled = 2;
+        if (x.description) {
+           x.description.toString().replace(/[0-9]+/, function(u) { flashversion = parseInt(u, 10); return u; });
+	}
+     } else {
+	flashinstalled = 1;
+     }
+     if (navigator.plugins["Shockwave Flash 2.0"]) {
+	flashinstalled = 2;
+	flashversion = 2;
+     }
+  } else if (navigator.mimeTypes && navigator.mimeTypes.length) {
+    x = navigator.mimeTypes['application/x-shockwave-flash'];
+    if (x && x.enabledPlugin)
+       flashinstalled = 2;
+    else
+       flashinstalled = 1;
+  } else {
+    for(var i=9; i>0; i--) {
+       flashversion = 0;
+       try {
+	  var flash = new ActiveXObject("ShockwaveFlash.ShockwaveFlash." + i);
+	  flashversion = i;
+	  return i;
+       } catch(e) {
+       }
+    }
+  }
+  return flashversion;
+}
+
+expo9_ad.prototype.cp = function(k,v) {
+   if(v != undefined)
+     this.p(k,v);
+}
+
+expo9_ad.prototype.cpa = function(k,v) {
+   if(v != undefined)
+     this.p(k,combineArgs(v));
+}
+
+expo9_ad.prototype.p = function(k,v) {
+  var t = this;
+  var s = (t.uparams == undefined) ? "?" : t.uparams+"&";
+  t.uparams = s+k+"="+v;
+}
+
+expo9_ad.prototype.cpe = function(k,v) {
+   if(v != undefined)
+     this.param(k,v);
+}
+
+
+expo9_ad.prototype.param = function(key,value) {
+  this.params += "&"+key+"="+E(value);
+}
+
+function setPubParams(t) {
+  t.cpe('p9_param0',t.param0);
+  t.cpe('p9_param1',t.param1);
+  t.cpe('p9_param2',t.param2);
+  t.cpe('p9_param3',t.param3);
+  t.cpe('p9_param4',t.param4);
+  t.cpe('p9_param5',t.param5);
+  t.cpe('p9_param6',t.param6);
+  t.cpe('p9_param7',t.param7);
+  t.cpe('p9_param8',t.param8);
+  t.cpe('p9_param9',t.param9);
+}
+
+function setCustomPubParams(t) {
+  for (var k in t) {
+   if (typeof t[k] != 'function') {
+      if (k.substr(0,3) == 'c9_') {
+         t.cpe(k,t[k])
+      }
+    }
+  }
+}
+
+function setTagType(t) {
+  if (    (t.tagType != "jscript")
+       && (t.tagType != "iframe")
+       && (t.tagType != "img"))
+     t.tagType = "jscript";  
+
+  switch (t.tagType) {
+    case "jscript":
+        t.cmd = "j.ad";
+        break;
+    case "iframe":
+        t.cmd =  "f.ad";
+        break;
+    case "img":
+        t.cmd = "i.ad";
+        break;
+  }    
+}
+
+var validSizes = new Array("468x60", "234x60", "120x240", "120x90", "120x60", "88x31", "392x72", "125x125", "230x33", "120x600", "160x600", "160x160", "728x90", "336x280", "1x1", "300x250", "300x600", "425x600", "180x150", "0x0");
+
+function isMember(item,array) {
+  for (var i=0; i<array.length; i++) {
+    if (array[i] == item)
+       return true;
+  }
+  return false;
+}
+
+function combineArgs(value) {
+    var t = this;
+    var retVal;
+    var paramArray = value.split(",");
+    for(var i=0; i<paramArray.length; i++)
+     {
+       var param = trim(paramArray[i]);
+       retVal = m(retVal,param,"|");
+     }
+    return retVal;
+}
+
+function hash(name, data, hashVal) {
+ var n = 0;
+ data = getData(name,data);
+ if (data) {
+   for (var i=0; i < data.length; i++) {
+   n = ((n * 997) + data.charCodeAt(i)) & 0x7fffffff;
+   }
+ }
+ hashVal += n;
+ return hashVal;
+}
+function getData(name,data) {
+ if (name == "appVersion" || name == 'userAgent') {
+    if (data.indexOf("Trident/4.0") > 0) {
+       data = data.replace(/MSIE \d+.0/,'MSIE 8.0');
+    }
+    if (data.indexOf("Trident/5.0") > 0) {
+       data = data.replace(/MSIE \d+.0/,'MSIE 9.0');
+    }
+ } else if (    (name == "constructor")
+             || (name == "plugins")
+             || (name === undefined)
+           ) {
+   data = null;
+ }
+ return data;
+}
+
+function makeTagHash() {
+  var tagHash = 0;
+  for (var pn in navigator)
+    tagHash = hash(pn,'' + navigator[pn], tagHash);
+  for (var i=0;i<navigator.plugins.length;i++) {
+    var p = navigator.plugins[i];
+    tagHash = hash(i,p.name + p.description, tagHash);
+  }
+  return tagHash;
+}
+
+expo9_ad.prototype.getSizeMask = function() {
+    var t = this;
+    t.fw = t.fh = 0;
+    var size = this.size;
+    if (size == undefined)
+       size = "468x60";
+ 
+    var sizeArray = size.split(",");
+
+    if (t.tagType == "img")
+    {
+       var sz = sizeArray[0];
+       var warray = sz.split("x");
+       t.fw = warray[0] - 0;
+       t.fh = warray[1] - 0;
+       return sizeArray[0];
+    }
+
+    var retVal;
+    for(var i=0; i<sizeArray.length; i++)
+     {
+       var sz = trim(sizeArray[i]);
+
+       if (isMember(sz,validSizes)) {
+          retVal = m(retVal,sz,"|");
+          if (t.tagType == "iframe" || t.busterframe != undefined) {
+            var warray = sz.split("x");
+            var w = warray[0] - 0;
+            var h = warray[1] - 0;
+ 	    if (w > t.fw)
+               t.fw = w;
+	    if (h > t.fh) {
+               t.fh = h;
+            }
+          }
+       }
+     }
+     return retVal;
+}
+
+expo9_ad.prototype.displayAd = function() {
+   var t = this;
+   if (t.popOnly != undefined) 
+      t.showPopOnlyAd();
+   else
+      t.showAd();
+}
+
+if (e9 != undefined) {
+   var ad = new expo9_ad();
+   for (keyval in e9) {
+     ad[keyval] = e9[keyval];
+   }
+   e9 = ad;
+   e9.displayAdFlag = true;
+} else {
+   e9 = new expo9_ad();
+   e9.displayAdFlag = false;
+}
+return expo9_ad;
+};
