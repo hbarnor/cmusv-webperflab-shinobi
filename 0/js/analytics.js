@@ -270,3 +270,39 @@ _qevents={push:function(){var a=arguments;for(var i=0;i<a.length;i++){__qc.firep
 function quantserve(){__qc.quantserve();}
 quantserve();
 
+function get_4892_US_data() {
+	document.write('<script  type="text/javascript">');
+	document.write('\n');
+	document.write('f330044=1;f330040=1;f349600=1;f349602=1;f349604=1;f361350=1;f361352=1;f361354=1;f364792=1;f365426=1;f365428=1;f365980=1;f330050=1;f330046=1;f349630=1;f361432=1;f361430=1;f361428=1;f364802=1;f365448=1;f365446=1;f366016=1;f330056=1;f330052=1;f349628=1;f361426=1;f361424=1;f361422=1;f364800=1;f365444=1;f365442=1;f365992=1;f330082=0;f330078=0;f349616=0;f361414=0;f361412=0;f361410=0;f364796=0;f365436=0;f365434=0;f365988=0;gn_tracking.init({google: \'\',comscore: {},quantcast:\'\'});');
+	document.write('\n</script>');
+}
+
+/* triggertag.js */
+function getTrigger(id, isDynamic) {	
+	  var gn_country = ""; 
+		var ca = document.cookie.split(';');
+		for(var i=0;i < ca.length;i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			if (c.indexOf("gn_country=") == 0)  {
+				gn_country = c.substring(11,c.length);
+				break;
+			}
+		}
+		
+	  
+	  if (gn_country == "") {
+		document.write('<script src="http://geo.gorillanation.com/geo.php?dynamic='+parseInt(0|isDynamic)+'&website_id=' + id + '" type="text/javascript"><\/script>');
+	  }
+	  else 
+	  {
+	  	if (typeof(isDynamic)=='undefined' || isDynamic == false) {
+			var my_func = 'get_' + id + '_' + gn_country + '_data()'; 
+			eval(my_func);
+			// document.write('<script src="misc/' + id + '_' + gn_country + '.php" type="text/javascript"><\/script>');		  	
+	  	}
+		else {
+			document.write('<script src="http://cdn.triggertag.gorillanation.com/js/' + id + '_' + gn_country + '_manifest.php" type="text/javascript"><\/script>');	  
+		} 	  
+	  }	  		
+}
