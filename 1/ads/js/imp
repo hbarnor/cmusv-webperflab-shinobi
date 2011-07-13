@@ -1,0 +1,6 @@
+document.write('<object type=\"application/x-shockwave-flash\" data=\"../swf/8f486127ea02fcbefcd5186e5adbca2.swf\" height=\"250\" width=\"300\" loop=\"false\" wmode=\"opaque\"><param name=\"wmode\" value=\"opaque\"><param name=\"movie\" value=\"../swf/8f486127ea02fcbefcd5186e5adbca2.swf\" /></object>');
+var rm_data = new Object();
+rm_data.creative_id = 5476127;
+rm_data.offer_type = 48;
+rm_data.entity_id = 300084;
+if (window.rm_crex_data) {rm_crex_data.push(5476127);}
