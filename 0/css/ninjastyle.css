@@ -31,10 +31,11 @@ div#tmpSlideshowControls {
     width: 175px;
 }
 div.tmpSlideshowControl {
+	background-image: url("../images/spriteme1.png");
+	background-position: -8.5px -571px;
     border: none;
     float: left;
     margin: 0 2px 0 0;
-    background: url('../images/slideshow-circles.png') top no-repeat;
     width: 18px;
     height: 15px;
     color: #FFF;
@@ -49,10 +50,12 @@ div.tmpSlideshowControl span {
 	width:18px;
 }
 div.tmpSlideshowControlOn {
-    background: url('../images/slideshow-circles.png') center no-repeat;
+  	background-position: -8.5px -571px;
+    /*background: url('../images/slideshow-circles.png') center no-repeat;*/
 }
 div.tmpSlideshowControlActive {
-    background: url('../images/slideshow-circles.png') bottom no-repeat;
+	background-position: -8.5px -571px;
+    /*background: url('../images/slideshow-circles.png') bottom no-repeat;*/
 }
 div.tmpSlideCopy {
     position: absolute;
@@ -244,7 +247,7 @@ body, html {
 #main {
 
 	background: url(../images/background-scratchy.jpg) bottom center no-repeat;
-		background-color:#030303;
+	background-color:#030303;
 }
 #inner-wrapper {
 	padding-top:4px;
@@ -274,9 +277,30 @@ a img {
 	margin-bottom:3px;
 	position:relative;
 }
+.title-right-md1 {
+	background-image: url("../images/spriteme1.png");
+  	background-position: -1952px -527px;
+	width:20%;
+	height:24px;
+	position:absolute;
+	top:0px;
+	right:0px;
+}
+
+.title-right-sm1 {
+	background-image: url("../images/spriteme1.png");
+  	background-position: -1964px -527px;
+	width:20%;
+	height:24px;
+	position:absolute;
+	top:0px;
+	right:0px;
+}
+
 .title-block {
+	background-image: url("../images/spriteme1.png");
+  	background-position: -1018px -527px;
 	width:80%;
-	background:url(../images/module-header-background.png) left top no-repeat;
 	font-size:1.2em;
 	line-height:23px;
 	padding-left:25px;
@@ -284,16 +308,19 @@ a img {
 	height:24px;
 }
 .title-right {
+	background-image: url("../images/spriteme1.png");
+  	background-position: -1913px -527px;
 	width:20%;
 	height:24px;
 	position:absolute;
 	top:0px;
 	right:0px;
-	background:url(../images/module-header-background.png) right top no-repeat;
 }
 .module-header {
+	background-image: url("../images/spriteme1.png");
+	background-position: -1018px -527px;
 	position:relative;
-	background:url(../images/module-header-background.png) left top no-repeat;
+	/*background:url(../images/module-header-background.png) left top no-repeat;*/
 	padding-left:25px;
 	height:24px;
 	color:#fff;
@@ -318,11 +345,14 @@ span.heading-bullet {
 	height:100%
 }
 #header {
-	background:url(../images/header-footer.png) no-repeat top center;
-	height:98px;
+	background-image: url("../images/spriteme1.png");
+  	background-position: -10px -10px;
+  	height:98px;
+
 }
 div#navigation {
-	background:url(../images/top-menu.bg.png) no-repeat top center;
+	background-image: url("../images/spriteme1.png");
+	background-position: -10px -224px;
 	height:30px;
 	width:982px;
 	margin: 0 auto 0 auto;
@@ -332,7 +362,6 @@ div#navigation {
 div#navigation ul {
 	margin-left:12px;
 	width:980px;
-
 	border-left: 1px solid #85B6E7;
 }
 div#navigation ul li  {
@@ -346,10 +375,11 @@ div#navigation ul li a  {
 	color:#FFF;
 	border-right: 1px solid #85B6E7;
 	text-decoration:none;
-	background:url(../images/top-menu.bg.png) no-repeat top center;
 }
 div#navigation ul li a:hover, div#navigation ul li.active a {
-	background:url(../images/top-menu.bg.png) no-repeat bottom center;
+	background-image: url("../images/spriteme1.png");
+	background-position: -15px -254px;
+	/*background:url(../images/top-menu.bg.png) no-repeat bottom center;*/
 }
 ul#menu-footer {
 	position:absolute;
@@ -378,40 +408,45 @@ ul#social-footer {
 	right:20px;
 }
 #social-footer li a {
-	background:url(../images/social-connect.png) no-repeat 2px 0px;
+	background-image: url("../images/spriteme1.png");
 	height:32px;
 	font-size:1.5em;
 	float:right;
 	color:#777;
 	padding: 0 5px 0 37px;
 	text-decoration:none;
-	line-height:28px
+	line-height:28px;
+	background-position: -8px -777px;
 }
 #social-footer li.fb a {
-	background:url(../images/social-connect.png) no-repeat 2px -64px;
+	  background-position: -8px -841px;
 }
 #social-footer li a:hover {
-	background:url(../images/social-connect.png) no-repeat 2px -32px;
+	background-position: -8px -809px;
 	color:#FFF;
 }
 #social-footer li.fb a:hover {
-	background:url(../images/social-connect.png) no-repeat 2px -96px;
+	  background-position: -8px -873px;
 }
 #footer {
 	position:relative;
-	background:url(../images/header-footer.png) no-repeat bottom center;
+	background-image: url("../images/spriteme1.png");
+  	background-position: -10px -109px;
 	height:95px;
 	clear:both;
 }
 #feature-games {
+  	background-image: url("../images/spriteme1.png");
+  	background-position: -8px -294px;
 	width:240px;
 	float:left;
 	height:211px;
-	background:url(../images/feature-game-background.png) no-repeat 2px bottom;
+	/*background:url(../images/feature-game-background.png) no-repeat 2px bottom;*/
 }
 #feature-games:hover {
+	background-position: -8px -294px;
 	height:211px;
-	background:url(../images/feature-game-background.png) no-repeat -246px bottom;
+	/*background:url(../images/feature-game-background.png) no-repeat -246px bottom;*/
 }
 #new-games {
 	width:246px;
@@ -426,8 +461,7 @@ ul#social-footer {
 
 	margin-bottom:4px;
 	font-size:1.9em;
-
-		background-color:#FFF;
+	background-color:#FFF;
 }
 .ad-loader-light {
 		background:url(../images/ajax-loader-white.gif) no-repeat center center;
@@ -590,17 +624,19 @@ div.dark-module4 {
 	padding:0px 20px 10px 20px;
 }
 .dailyPlayWrap {
+	background-image: url("../images/spriteme1.png");
 	display:block;
 	position:relative;
 	margin-top:15px;
-	background:url(../images/feature-game-background.png) top left no-repeat;
+	/* background:url(../images/feature-game-background.png) top left no-repeat;*/
 	width:238px;
 	height:196px;
 	border:none;
 }
 .dailyPlayWrap:hover {
+	background-position: -8px -294px;
 	text-decoration:inherit;
-	background:url(../images/feature-game-background.png) top right no-repeat;
+	/*background:url(../images/feature-game-background.png) top right no-repeat;*/
 }
 .dailyPlayWrap img {
 	margin:3px 7px 5px 3px
@@ -769,6 +805,8 @@ ul.flags li a span.F14 {
  * parent class gameModuleBox
 -------------------------------------------- */
 .gameModuleBox li {
+	background-image: url("../images/spriteme1.png");
+  	/*background-position: -10px -636px;*/
 	list-style: none;
 	float: left;
 	position: relative;
@@ -776,7 +814,8 @@ ul.flags li a span.F14 {
 	background: url(../images/smallThumbBackground.png) 0px 0px scroll no-repeat;
 }
 .gameModuleBox li:hover {
-	background: url(../images/smallThumbBackground.png) -120px 0px scroll no-repeat;
+	background-position: -10px -636px;
+	/*background: url(../images/smallThumbBackground.png) -120px 0px scroll no-repeat;*/
 }
 /* Set to block and applied to the A tag for useablity
  * makes the whole thumb clickable and works in ie6
