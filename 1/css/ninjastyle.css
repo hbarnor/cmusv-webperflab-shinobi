@@ -51,11 +51,9 @@ div.tmpSlideshowControl span {
 }
 div.tmpSlideshowControlOn {
   	background-position: -8.5px -585px;
-    /*background: url('../images/slideshow-circles.png') center no-repeat;*/
 }
 div.tmpSlideshowControlActive {
 	background-position: -8.5px -601px;
-    /*background: url('../images/slideshow-circles.png') bottom no-repeat;*/
 }
 div.tmpSlideCopy {
     position: absolute;
@@ -320,7 +318,6 @@ a img {
 	background-image: url("../images/spriteme1.png");
 	background-position: -1018px -527px;
 	position:relative;
-	/*background:url(../images/module-header-background.png) left top no-repeat;*/
 	padding-left:25px;
 	height:24px;
 	color:#fff;
@@ -379,7 +376,6 @@ div#navigation ul li a  {
 div#navigation ul li a:hover, div#navigation ul li.active a {
 	background-image: url("../images/spriteme1.png");
 	background-position: -15px -254px;
-	/*background:url(../images/top-menu.bg.png) no-repeat bottom center;*/
 }
 ul#menu-footer {
 	position:absolute;
@@ -461,10 +457,10 @@ ul#social-footer {
 	background-color:#FFF;
 }
 .ad-loader-light {
-		background:url(../images/ajax-loader-white.gif) no-repeat center center;
+		/*background:url(../images/ajax-loader-white.gif) no-repeat center center;*/
 }
 .ad-loader-dark {
-		background:url(../images/ajax-loader-dark.gif) no-repeat center center;
+		/*background:url(../images/ajax-loader-dark.gif) no-repeat center center;*/
 }
 
 .rounded {
@@ -592,20 +588,20 @@ div.dark-module-scratch {
 div.dark-module-honeycomb {
 	background-color:transparent;
 	border: 1px solid #555;
-	background:url(../images/transparency-repeat-grad.png) top center repeat;
+	/*background:url(../images/transparency-repeat-grad.png) top center repeat;*/
 }
 .dark-module-no-back {
-	background:url(../images/transparency-repeat.png) top center repeat;
+	/*background:url(../images/transparency-repeat.png) top center repeat;*/
 	background-color:transparent;
 	border: 1px solid #555;
 }
 div.dark-module {
 	background-color:transparent;
 	border: 1px solid #555;
-	background:url(../images/transparency-repeat.png) repeat;
+	/*background:url(../images/transparency-repeat.png) repeat;*/
 }
 div.dark-module2 {
-	background:url(../images/honey.png)top left no-repeat;
+	/*background:url(../images/honey.png)top left no-repeat;*/
 	background-position: -7px 0px;
 	background-color:#fff;
 }
@@ -614,7 +610,7 @@ div.dark-module3 {
 	background-color:#fff;
 }
 div.dark-module4 {
-	background:url(../images/background-scratchy-white.jpg) left -50px no-repeat;
+	/*background:url(../images/background-scratchy-white.jpg) left -50px no-repeat;*/
 	background-color:#fff;
 }
 .game-description {
