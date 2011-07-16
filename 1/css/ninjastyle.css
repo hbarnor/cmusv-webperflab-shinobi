@@ -31,7 +31,7 @@ div#tmpSlideshowControls {
     width: 175px;
 }
 div.tmpSlideshowControl {
-	background-image: url("../images/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
 	background-position: -8.5px -571px;
     border: none;
     float: left;
@@ -84,7 +84,7 @@ div.tmpSlideCopy p {
 	display:block;
 	height:40px;
 	width:40px;
-	background:url(../images/Top-5-Thumbs.jpg) 0px 0px;;
+	background:url("http://cdn.webperflab.com/shinobi/static/images/Top-5-Thumbs.jpg") 0px 0px;;
 	float:left;
 	margin: 0 4px 4px 0;
 	}
@@ -197,7 +197,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	background: transparent;
 }
 body, html {
-	background:url(../images/background-ninjas-blue.gif) #005284 repeat top left fixed;
+	background:url("http://cdn.webperflab.com/shinobi/static/images/background-ninjas-blue.gif") #005284 repeat top left fixed;
 	font-size: 62.5%;/* Resets 1em to 10px */
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
 	height:100%
@@ -244,7 +244,7 @@ body, html {
 
 #main {
 
-	background: url(../images/background-scratchy.jpg) bottom center no-repeat;
+	background: url("http://cdn.webperflab.com/shinobi/static/images/background-scratchy.jpg") bottom center no-repeat;
 	background-color:#030303;
 }
 #inner-wrapper {
@@ -276,7 +276,7 @@ a img {
 	position:relative;
 }
 .title-right-md1 {
-	background-image: url("../images/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
   	background-position: -1952px -527px;
 	width:20%;
 	height:24px;
@@ -286,7 +286,7 @@ a img {
 }
 
 .title-right-sm1 {
-	background-image: url("../images/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
   	background-position: -1964px -527px;
 	width:20%;
 	height:24px;
@@ -296,7 +296,7 @@ a img {
 }
 
 .title-block {
-	background-image: url("../images/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
   	background-position: -1018px -527px;
 	width:80%;
 	font-size:1.2em;
@@ -306,7 +306,7 @@ a img {
 	height:24px;
 }
 .title-right {
-	background-image: url("../images/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
   	background-position: -1913px -527px;
 	width:20%;
 	height:24px;
@@ -315,7 +315,7 @@ a img {
 	right:0px;
 }
 .module-header {
-	background-image: url("../images/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
 	background-position: -1018px -527px;
 	position:relative;
 	padding-left:25px;
@@ -342,13 +342,13 @@ span.heading-bullet {
 	height:100%
 }
 #header {
-	background-image: url("../images/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
   	background-position: -10px -10px;
   	height:98px;
 
 }
 div#navigation {
-	background-image: url("../images/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/spriteme1.png");
 	background-position: -10px -224px;
 	height:30px;
 	width:982px;
@@ -374,7 +374,7 @@ div#navigation ul li a  {
 	text-decoration:none;
 }
 div#navigation ul li a:hover, div#navigation ul li.active a {
-	background-image: url("../images/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
 	background-position: -15px -254px;
 }
 ul#menu-footer {
@@ -404,7 +404,7 @@ ul#social-footer {
 	right:20px;
 }
 #social-footer li a {
-	background-image: url("../images/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
 	height:32px;
 	font-size:1.5em;
 	float:right;
@@ -426,13 +426,13 @@ ul#social-footer {
 }
 #footer {
 	position:relative;
-	background-image: url("../images/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
   	background-position: -10px -109px;
 	height:95px;
 	clear:both;
 }
 #feature-games {
-  	background-image: url("../images/spriteme1.png");
+  	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
   	background-position: -8px -294px;
 	width:240px;
 	float:left;
@@ -505,7 +505,7 @@ ul#social-footer {
 	-webkit-border-radius: 5px;
 	overflow:auto;
 	background-color:transparent;
-	background:url(../images/transparency-repeat2.png) repeat;
+	background:url("http://cdn.webperflab.com/shinobi/static/transparency-repeat2.png") repeat;
 	border: 1px solid #333;
 	border-radius: 5px;
 }
@@ -581,7 +581,7 @@ ul {
 div.dark-module-scratch {
 	background-color:transparent;
 	border: 1px solid #555;
-	background:url(../images/trans-dark-tile.png) repeat-x;
+	background:url("http://cdn.webperflab.com/shinobi/static/images/trans-dark-tile.png") repeat-x;
 	text-decoration:none;
 	overflow:visible;
 }
@@ -617,7 +617,7 @@ div.dark-module4 {
 	padding:0px 20px 10px 20px;
 }
 .dailyPlayWrap {
-	background-image: url("../images/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
 	background-position: -10px -321px;
 	display:block;
 	position:relative;
@@ -728,7 +728,7 @@ ul.flags li a {
 }
 ul.flags li a span {
 	display:inline-block;
-	background-image: url(../images/spriteme1.png);
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
 	background-position: -10px -742px;
 	padding: 0px;
 	height:100%;
@@ -798,7 +798,7 @@ ul.flags li a span.F14 {
  * parent class gameModuleBox
 -------------------------------------------- */
 .gameModuleBox li {
-	background-image: url("../images/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
   	background-position: -10px -636px;
 	list-style: none;
 	float: left;
