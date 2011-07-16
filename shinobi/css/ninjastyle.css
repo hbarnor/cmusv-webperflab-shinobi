@@ -348,7 +348,7 @@ span.heading-bullet {
 
 }
 div#navigation {
-	background-image: url("http://cdn.webperflab.com/shinobi/static/spriteme1.png");
+	background-image: url("http://cdn.webperflab.com/shinobi/static/images/spriteme1.png");
 	background-position: -10px -224px;
 	height:30px;
 	width:982px;
@@ -505,7 +505,7 @@ ul#social-footer {
 	-webkit-border-radius: 5px;
 	overflow:auto;
 	background-color:transparent;
-	background:url("http://cdn.webperflab.com/shinobi/static/transparency-repeat2.png") repeat;
+	background:url("http://cdn.webperflab.com/shinobi/static/images/transparency-repeat2.png") repeat;
 	border: 1px solid #333;
 	border-radius: 5px;
 }
