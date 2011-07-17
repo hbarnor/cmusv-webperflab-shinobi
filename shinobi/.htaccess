@@ -1,28 +1,27 @@
 <ifmodule mod_expires.c>
-	<FilesMatch "\.(gif|jpg|png|swf|js|css)$">
+	<FilesMatch "\.(gif|jpe?g|png|swf|js|css)$">
 		ExpiresActive on 
 		ExpiresDefault "access plus 1 year"
 	</FilesMatch>
 </ifmodule>
-<ifmodule mod_deflate.c>
-	<Location /shinobi>
 
-		# Insert filter
-		SetOutputFilter DEFLATE
-		# Netscape 4.x has some problems...
-		BrowserMatch ^Mozilla/4 gzip-only-text/html
-		# Netscape 4.06-4.08 have some more problems
-		BrowserMatch ^Mozilla/4\.0[678] no-gzip
-		# MSIE masquerades as Netscape, but it is fine
-		# BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
-		# NOTE: Due to a bug in mod_setenvif up to Apache 2.0.48
-		# the above regex won't work. You can use the following
-		# workaround to get the desired effect:
-		BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
-		# Don't compress images
-		SetEnvIfNoCase Request_URI \
-		\.(?:gif|jpe?g||swf|png)$ no-gzip dont-vary
-		# Make sure proxies don't deliver the wrong content
-		Header append Vary User-Agent env=!dont-vary
-	</Location>
+<ifmodule mod_deflate.c>
+
+	# Insert filter
+	SetOutputFilter DEFLATE
+	# Netscape 4.x has some problems...
+	BrowserMatch ^Mozilla/4 gzip-only-text/html
+	# Netscape 4.06-4.08 have some more problems
+	BrowserMatch ^Mozilla/4\.0[678] no-gzip
+	# MSIE masquerades as Netscape, but it is fine
+	# BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+	# NOTE: Due to a bug in mod_setenvif up to Apache 2.0.48
+	# the above regex won't work. You can use the following
+	# workaround to get the desired effect:
+	BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+	# Don't compress images
+	SetEnvIfNoCase Request_URI \
+	\.(?:gif|jpe?g|swf|png)$ no-gzip dont-vary
+	# Make sure proxies don't deliver the wrong content
+	Header append Vary User-Agent env=!dont-vary
 </ifmodule>
