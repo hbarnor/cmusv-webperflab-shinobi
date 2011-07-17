@@ -1,1 +1,0 @@
-document.write('<!-- BEGIN STANDARD TAG - 160 x 600 - 160x600: Run-of-site - DO NOT MODIFY -->\n<SCRIPT TYPE=\"text/javascript\" SRC=\"js/ad_metanetwork_1926478.js\"><\/SCRIPT>');document.write('\n<!-- END TAG -->');
