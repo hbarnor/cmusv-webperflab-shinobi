@@ -377,11 +377,15 @@ div#navigation ul li a:hover, div#navigation ul li.active a {
 	background-image: url("../images/spriteme1.png");
 	background-position: -15px -254px;
 }
+
 ul#menu-footer {
 	position:absolute;
 	width:400px;
 	top:40px;
 	left:20px;
+}
+#menu-footer li {
+	float:left;
 }
 #menu-footer li a {
 	font-size:1.5em;
@@ -402,6 +406,10 @@ ul#social-footer {
 	width:400px;
 	top:33px;
 	right:20px;
+}
+#social-footer li {
+	float:right;
+	height: 32px;
 }
 #social-footer li a {
 	background-image: url("../images/spriteme1.png");
@@ -823,6 +831,20 @@ ul.flags li a span.F14 {
 	background-repeat: no-repeat;
 	cursor: pointer;
 }
+a.gameThumbWrapper 
+{
+	width: 120px;
+	height: 100px;
+	display: block;
+	background-position: 3px 3px;
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	zoom:0;
+}
+.gameThumbWrapper  img {
+	display:block;
+}
 /* Basically a mask for the thumbnail
  * with the .gameThumbWrapper taking up full width
  * and height the image appears to repeat.
@@ -836,7 +858,16 @@ ul.flags li a span.F14 {
 	top: 3px;
 	left: 3px;
 }
-
+.gameThumbImg img {
+	height:74px;
+	width:110px;
+}
+a.gameThumbImg	{
+	display:block;
+	position:relative;
+	width: auto;
+	height:  auto;
+}
 
 /* Positions thumbnail name
  * and controls the font styling
