@@ -1,0 +1,6 @@
+<ifmodule mod_expires.c>
+	<FilesMatch "\.(html)$">
+		ExpiresActive on 
+		ExpiresDefault "access plus 1 year"
+	</FilesMatch>
+</ifmodule>
