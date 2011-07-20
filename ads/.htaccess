@@ -1,0 +1,10 @@
+<ifmodule mod_expires.c>
+	<FilesMatch "\.(html)$">
+		ExpiresActive on 
+		ExpiresDefault "access plus 1 year"
+	</FilesMatch>
+</ifmodule>
+
+<ifmodule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/text text/html text/plain
+</ifmodule>
