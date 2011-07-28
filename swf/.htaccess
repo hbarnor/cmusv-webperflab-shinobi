@@ -4,3 +4,7 @@
 		ExpiresDefault "access plus 1 year"
 	</FilesMatch>
 </ifmodule>
+<ifModule mod_headers.c>
+  Header unset ETag
+</ifModule>
+FileETag None

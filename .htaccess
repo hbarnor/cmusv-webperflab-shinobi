@@ -1,3 +1,7 @@
 <ifmodule mod_deflate.c>
 	AddOutputFilterByType DEFLATE text/text text/html text/plain
 </ifmodule>
+<ifModule mod_headers.c>
+  Header unset ETag
+</ifModule>
+FileETag None

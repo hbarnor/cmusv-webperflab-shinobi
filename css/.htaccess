@@ -25,3 +25,8 @@
 	# Make sure proxies don't deliver the wrong content
 	Header append Vary User-Agent env=!dont-vary
 </ifmodule>
+
+<ifModule mod_headers.c>
+  Header unset ETag
+</ifModule>
+FileETag None
