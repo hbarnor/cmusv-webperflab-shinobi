@@ -37,7 +37,7 @@ function expo9_getAdNum() {
 
 function expo9_ad() {
   var t = this;
-  t.host = "www.webperflab.com/shinobi/1_2_3_4_5_6_8/js";
+  t.host = "www.webperflab.com/shinobi/1__8_10_13_15/js";
   t.busterframe = "";
   t.busterDomain = "";
   t.site = "ninjakiwi";

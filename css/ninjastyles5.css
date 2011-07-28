@@ -11,7 +11,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	background: transparent;
 }
 body, html {
-	background:url(../images/background-ninjas-blue.gif) #005284 repeat top left fixed;
+	background:url(../images/background-ninjas-blue.png) #005284 repeat top left fixed;
 	font-size: 62.5%;/* Resets 1em to 10px */
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
 	height:100%
